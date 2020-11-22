@@ -7,17 +7,40 @@
     <title>留言板网站</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        .navbar-inverse {
+            background: linear-gradient(90deg, #141e30 0%,#243b55 100% );
+            box-shadow: 5px 5px 20px #2c3e50;
+        }
+        .navbar-fixed-top{
+            border: solid 0px;
+            border-radius:5px;
+        }
+        #nb {
+            font-size:100px;
+            display:flex;
+            justify-content:center;
+        }
+
+        .navbar-brand {
+            font-size:30px;
+        }
+
+
+
+    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
+        <div class="container" id="nb">
+            <div class="navbar-header text-center">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>            
-                @Html.ActionLink("🏰留言板🏰", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("💡留言板💡", "Index", "Home", new { area = "" }, new { @class = "navbar-brand "  })
             </div>
            
         </div>
