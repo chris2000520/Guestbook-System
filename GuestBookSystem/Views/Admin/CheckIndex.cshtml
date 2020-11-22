@@ -1,0 +1,40 @@
+﻿@model List<GuestBookSystem.Models.Guestbook>
+@{
+    ViewBag.Title = "CheckIndex";
+}
+
+<style>
+    p {
+        margin: 20px;
+    }
+</style>
+
+
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="/Admin/DeleteIndex">删除留言</a></li>
+    <li role="presentation"><a href="/Admin/CheckIndex">审核留言</a></li>
+    <li role="presentation"><a href="#">用户管理</a></li>
+    <li role="presentation"><a href="/Admin/CommentSummary">留言统计</a></li>
+    <li role="presentation"><a href="/Account/Logout">退出登陆</a></li>
+</ul>
+
+
+<h2>审核留言</h2>
+
+@foreach (var gb in Model)
+{
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+            @gb.Title
+        </h3>
+    </div>
+    <div class="panel-body" style="background:linear-gradient(90deg, #a1c4fd 0%,#c2e9fb 100% );">
+        <p>📫邮箱：@gb.AuthorEmail</p>
+        <p>⏱时间：@gb.CreatedOn</p>
+        <p>👉内容：@gb.Content</p>
+        <p>@Html.ActionLink("审核通过", "CheckMessage", new { id = gb.GuestbookId }, new { @class = "btn btn-success" })</p>
+    </div>
+</div>
+}

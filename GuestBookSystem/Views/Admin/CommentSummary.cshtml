@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "CommentSummary";
+}
+
+
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="/Admin/DeleteIndex">删除留言</a></li>
+    <li role="presentation"><a href="/Admin/CheckIndex">审核留言</a></li>
+    <li role="presentation"><a href="#">用户管理</a></li>
+    <li role="presentation"><a href="/Admin/CommentSummary">留言统计</a></li>
+    <li role="presentation"><a href="/Account/Logout">退出登陆</a></li>
+</ul>
+
+<h2>留言统计</h2>
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">审核通过</h3>
+    </div>
+    <div class="panel-body">
+        一共有 @ViewBag.count 条已审核通过的留言
+    </div>
+</div>
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        <h3 class="panel-title">有待审核</h3>
+    </div>
+    <div class="panel-body">
+        一共有 @ViewBag.count2 条待审核的留言
+    </div>
+</div>

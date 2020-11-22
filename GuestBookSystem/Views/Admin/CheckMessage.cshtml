@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "CheckMessage";
+}
+
+
+<style>
+    p {
+        margin: 20px;
+    }
+</style>
+
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="/Admin/DeleteIndex">删除留言</a></li>
+    <li role="presentation"><a href="/Admin/CheckIndex">审核留言</a></li>
+    <li role="presentation"><a href="#">用户管理</a></li>
+    <li role="presentation"><a href="/Admin/CommentSummary">留言统计</a></li>
+    <li role="presentation"><a href="/Account/Logout">退出登陆</a></li>
+</ul>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+            确认是否审核通过？
+        </h3>
+    </div>
+    <div class="panel-body">
+        <p>📫邮箱：@Model.AuthorEmail</p>
+        <p>⏱时间：@Model.CreatedOn</p>
+        <p>👉内容：@Model.Content</p>
+        @using (Html.BeginForm())
+          {
+              <p>
+              <input type="submit" class="btn btn-success" value="确认通过" />
+              </p>
+          }
+        
+    </div>
+    
+
+</div>
+
