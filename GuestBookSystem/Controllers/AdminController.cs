@@ -63,7 +63,7 @@ namespace GuestBookSystem.Controllers
             var gb = db.Guestbooks.Find(id);
             db.Guestbooks.Remove(gb);
             db.SaveChanges();
-            return RedirectToAction("Index","Admin");
+            return RedirectToAction("DeleteIndex","Admin");
 
         }
 
@@ -87,6 +87,25 @@ namespace GuestBookSystem.Controllers
           
         }
 
+        public ActionResult UserManage()
+        {
+            var user = from u in db.Users
+                       select u;
+            
+            return View("UserManage", user.ToList());
+        }
+
+
+        public ActionResult DeleteUser(int id)
+        {
+            User user = db.Users.Find(id);
+            if (user != null)
+            {
+                db.Users.Remove(user);
+                db.SaveChanges();
+            }
+            return RedirectToAction("UserManage");
+        }
 
         protected override void Dispose(bool disposing)
         {

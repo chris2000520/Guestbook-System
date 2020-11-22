@@ -73,7 +73,7 @@ namespace GuestBookSystem.Controllers
             var gb = db.Guestbooks.Find(id);
             db.Guestbooks.Remove(gb);
             db.SaveChanges();
-            return RedirectToAction("AllWords", "User");
+            return RedirectToAction("MyWords", "User");
 
         }
 

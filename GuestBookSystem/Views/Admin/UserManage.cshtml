@@ -1,0 +1,57 @@
+﻿@model List<GuestBookSystem.Models.User>
+@{
+    ViewBag.Title = "UserManage";
+}
+
+
+
+<ul class="nav nav-tabs">
+    <li role="presentation"><a href="/Admin/DeleteIndex">删除留言</a></li>
+    <li role="presentation"><a href="/Admin/CheckIndex">审核留言</a></li>
+    <li role="presentation"><a href="/Admin/UserManage">用户管理</a></li>
+    <li role="presentation"><a href="/Admin/CommentSummary">留言统计</a></li>
+    <li role="presentation"><a href="/Account/Logout">退出登陆</a></li>
+</ul>
+
+<h2>所有用户</h2>
+<div class="container">
+    <table class="table table-hover table-bordered">
+        <caption>用户信息</caption>
+        <tr>
+            <th class="col-sm-2">序号🔔</th>
+            <th class="col-sm-2">姓名💳</th>
+            <th class="col-sm-2">邮箱📪</th>
+            <th class="col-sm-2">身份🙂</th>
+            <th class="col-sm-2">操作🔒</th>
+        </tr>
+        @foreach (GuestBookSystem.Models.User s in Model)
+        {
+            if (s.SRole.ToString() == "管理员")
+            {
+                <tr class="success">
+                    <td>@s.UserId</td>
+                    <td>@s.Name</td>
+                    <td>@s.Email</td>
+                    <td>@s.SRole.ToString()</td>
+                    <td>
+                        👑
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>@s.UserId</td>
+                    <td>@s.Name</td>
+                    <td>@s.Email</td>
+                    <td>@s.SRole.ToString()</td>
+                    <td>
+                        @Html.ActionLink("❌", "DeleteUser", new { id = s.UserId })
+                    </td>
+                </tr>
+            }
+
+
+        }
+    </table>
+</div>
