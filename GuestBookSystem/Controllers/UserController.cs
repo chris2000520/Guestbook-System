@@ -61,6 +61,22 @@ namespace GuestBookSystem.Controllers
             return View();
         }
 
+        public ActionResult Delete(int id)
+        {
+            var gb = db.Guestbooks.Find(id);
+            return View(gb);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfired(int id)
+        {
+            var gb = db.Guestbooks.Find(id);
+            db.Guestbooks.Remove(gb);
+            db.SaveChanges();
+            return RedirectToAction("AllWords", "User");
+
+        }
+
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);

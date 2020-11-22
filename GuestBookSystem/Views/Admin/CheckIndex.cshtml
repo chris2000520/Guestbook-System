@@ -34,7 +34,8 @@
         <p>📫邮箱：@gb.AuthorEmail</p>
         <p>⏱时间：@gb.CreatedOn</p>
         <p>👉内容：@gb.Content</p>
-        <p>@Html.ActionLink("审核通过", "CheckMessage", new { id = gb.GuestbookId }, new { @class = "btn btn-success" })</p>
+        <p style="display:inline">@Html.ActionLink("审核通过", "CheckMessage", new { id = gb.GuestbookId }, new { @class = "btn btn-success" })</p>
+        <p style="display:contents">@Html.ActionLink("删除留言", "Delete", new { id = gb.GuestbookId }, new { @class = "btn btn-danger" })</p>
     </div>
 </div>
 }
