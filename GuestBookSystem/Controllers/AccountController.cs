@@ -59,8 +59,32 @@ namespace GuestBookSystem.Controllers
             ModelState.AddModelError("", "用户名或密码错误");
             return View(user);
         }
+        [AllowAnonymous]
+        public ActionResult RegisterIndex()
+        {
 
-       
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
+            return View();
+        }
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult Register(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                db.Users.Add(user);
+                db.SaveChanges();
+                return RedirectToAction("Login", "Account");
+            }
+            return View();
+        }
+
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();

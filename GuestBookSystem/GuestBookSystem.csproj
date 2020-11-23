@@ -191,10 +191,10 @@
     <Content Include="Views\Admin\CommentSummary.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
     <Content Include="Views\Admin\UserManage.cshtml" />
+    <Content Include="Views\Account\RegisterIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
